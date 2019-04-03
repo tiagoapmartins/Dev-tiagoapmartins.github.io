@@ -62,7 +62,10 @@ export default {
 .sideBar {
     float: left;
     height: 100%;
-    background: #151515;
+    color: #fff;
+    background: #2c3e50;
+    background-image: url("../assets/Japanese_Wave_Pattern.svg");    
+    background-size: 950px;
 }
 img {
      border-radius: 50%;
@@ -72,11 +75,19 @@ ul {
   list-style-type: none;
   padding: 0;
 }
-li {
+
+.langSelect li {
   display: inline-block;
   margin: 0 10px;
 }
+
+nav li {
+    padding: 10px;
+    font-weight: bold;
+}
+
 a {
   color: #42b983;
+  text-decoration: none;
 }
 </style>      
