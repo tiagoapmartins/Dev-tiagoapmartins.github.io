@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p>
+		<p>{{ $t('bio') }}</p>
+		<p>
       For a guide and recipes on how to configure / customize this project,<br />
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
@@ -91,9 +92,27 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String
-  }
+  },
 };
 </script>
+
+<i18n>
+{
+    "en": {
+        "bio": "Default english biography"
+    },
+    "pt": {
+        "bio": "Biografia em português"
+    },
+    "es": {
+        "bio": "Biografía en español"
+    },
+    "ja": {
+        "bio": "日本語のビオグラフィ"
+    }
+}
+</i18n>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">

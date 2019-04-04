@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <SideBar lang="jp" />
+    <SideBar v-on:locale-select="changeLocale" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
@@ -14,8 +14,14 @@ export default {
   components: {
     HelloWorld,
     SideBar
-  }
+  },
+	methods: {
+		changeLocale(loc){
+			this.$i18n.locale=loc;
+		}	
+	}
 };
+
 </script>
 
 <style lang="scss">
