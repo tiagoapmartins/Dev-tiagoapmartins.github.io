@@ -1,5 +1,5 @@
 module.exports = {
-  pluginOptions: {
+	pluginOptions: {
     i18n: {
       locale: 'en',
       fallbackLocale: 'en',

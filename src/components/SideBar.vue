@@ -8,9 +8,6 @@
                 <a @click="$emit('locale-select','pt')" href="#">Português</a>
             </li>
             <li>
-                <a @click="$emit('locale-select','es')" href="#">Español</a>
-            </li>
-            <li>
                 <a @click="$emit('locale-select','ja')" href="#">日本語</a>
             </li>
         </ul>
@@ -27,14 +24,8 @@
         <div>
             <nav>
                 <ul>
-                    <li>
-												<a href="#">{{ $t('link1') }}</a>
-                    </li>
-                    <li>
-                        <a href="#">{{ $t('link2') }}</a>
-                    </li>
-                     <li>
-                        <a href="#">{{ $t('link3') }}</a>
+									<li v-for="link in $t('links')">
+												<a href="#">{{ link.name }}</a>
                     </li>
                 </ul>
             </nav>
@@ -46,30 +37,27 @@
 {
     "en": {
         "bio": "Default english biography",
-				"link1": "Academic Background",
-				"link2": "Projects",
-				"link3": "Contacts"
-    },
+				"links": [
+					{ "name" : "Academic Background", "page" : "Academic" },
+					{ "name" : "Projects", "page" : "" },
+					{ "name" : "Contacts", "page" : "" }
+				]
+		},
     "pt": {
         "bio": "Biografia em português",
-				"link1": "Percurso Académico",
-				"link2": "Projetos",
-				"link3": "Contactos"
-
-    },
-    "es": {
-        "bio": "Biografía en español",
-        "link1": "Recorrido Académico",
-				"link2": "Proyectos",
-				"link3": "Contactos"
-
+				"links": [
+					{ "name" : "Percurso Académico", "page" : "Academic" },
+					{ "name" : "Projetos", "page" : "" },
+					{ "name" : "Contactos", "page" : "" }
+				]
     },
     "ja": {
         "bio": "日本語のビオグラフィ",
-				"link1": "学歴",
-				"link2": "家",
-				"link3": "連絡先"
-
+				"links": [
+					{ "name" : "学歴", "page" : "Academic" },
+					{ "name" : "家", "page" : "" },
+					{ "name" : "連絡先", "page" : "" }
+				]
     }
 }
 </i18n>
@@ -90,8 +78,11 @@ export default {
 
 <style scoped lang="scss">
 .sideBar {
-  float: left;
+  position: absolute;
+	left: 0;
+	top: 0;
   height: 100%;
+	min-width: 350px;
   color: #fff;
   background: #2c3e50;
   background-image: url("../assets/Japanese_Wave_Pattern.svg");

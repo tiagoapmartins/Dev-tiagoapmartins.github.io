@@ -1,18 +1,20 @@
 <template>
   <div id="app">
     <SideBar v-on:locale-select="changeLocale" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+		<div id="content">
+			<Academic />
+		</div>
+	</div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Academic from "./components/Academic.vue";
 import SideBar from "./components/SideBar.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld,
+    Academic,
     SideBar
   },
 	methods: {
@@ -38,5 +40,8 @@ body {
   text-align: center;
   color: #2c3e50;
   height: 100%;
+}
+#content {
+	margin-left: 350px;
 }
 </style>
