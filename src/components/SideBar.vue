@@ -15,7 +15,7 @@
             <img src="../assets/me.jpg">
         </div>
         <div>
-            <h2 class="name">Tiago Martins</h2>
+					<h2 class="name">Tiago Martins</h2>
             <h4 v-if="$i18n.locale=='ja'" class="pronunciation">ティアゴマルチンス</h4>
             <p class="shortBio">
                 {{ $t('bio') }}
@@ -25,7 +25,7 @@
             <nav>
                 <ul>
 									<li v-for="link in $t('links')">
-												<a href="#">{{ link.name }}</a>
+												<a @click="$emit('page-select',link.page)" href="#">{{ link.name }}</a>
                     </li>
                 </ul>
             </nav>
@@ -70,9 +70,14 @@ export default {
   },
   data () {
       return {
-     
+    		birth:  new Date('1995-05-28')
       }
   },
+	computed: {
+		age: function (){
+			return Math.floor((Date.now() - this.birth) / (1000 * 60 * 60 * 24 * 365.5))
+		}
+	}
 };
 </script>
 

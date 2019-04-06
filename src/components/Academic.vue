@@ -111,7 +111,7 @@ export default {
 
 <style scoped lang="scss">
 .academic {
-	padding-top: 10px;
+	padding-top: 0px;
 	padding-left: 30px;
 	text-align: left;
 }
@@ -129,16 +129,32 @@ ul {
   list-style-type: none;
   padding: 10px;
 }
+
+ul.degrees {
+	position: relative;
+}
+
+ul.degrees:before {
+	position: absolute;
+	content: '';
+	display: inline-block;
+	height: 100%;
+	border: 1px dashed #777;
+	z-index: 1;
+}
+
 .degrees li {
 	position: relative;
-	padding: 0 10px 30px 20px;
-	border-left: solid 2px #777;
+	padding: 10px 10px 30px 20px;
+	margin: 30px 0;
+	background-color: #ccc;
+	border-radius: 15px 0 15px 0;
 }
 
 .degrees li:before {
 	position: absolute;
-	left: -10px;
-	top: 0px;
+	left: -8px;
+	top: 10px;
 	content: '';
 	display: inline-block;
 	border: 2px solid #777;
@@ -146,6 +162,7 @@ ul {
 	width: 15px;
 	height: 15px;
 	border-radius: 10px;
+	z-index: 1;
 }
 
 a {

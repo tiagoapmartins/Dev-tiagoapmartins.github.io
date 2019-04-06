@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <SideBar v-on:locale-select="changeLocale" />
+    <SideBar v-on:locale-select="changeLocale" v-on:page-select="changePage" />
 		<div id="content">
-			<Academic />
+			<component v-bind:is="selectedComponent"></component>
 		</div>
 	</div>
 </template>
@@ -17,9 +17,18 @@ export default {
     Academic,
     SideBar
   },
+	data () {
+		return {
+			selectedComponent: "Academic"
+		}
+	},
 	methods: {
 		changeLocale(loc){
 			this.$i18n.locale=loc;
+		},
+		changePage(page){
+			console.log(page);	
+			this.selectedComponent=page;
 		}	
 	}
 };
@@ -29,9 +38,10 @@ export default {
 <style lang="scss">
 html,
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%; /* needed for container min-height */
+  margin: 0;
+  padding: 0;
+  height: 100%; /* needed for container min-height */
+	background-color: #e7e7e1;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
@@ -39,9 +49,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  height: 100%;
+  height: 100%;	
 }
 #content {
-	margin-left: 350px;
+	margin-left: 350px;	
 }
 </style>
