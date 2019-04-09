@@ -2,19 +2,23 @@
   <div id="app">
     <SideBar v-on:locale-select="changeLocale" v-on:page-select="changePage" />
 		<div id="content">
-			<component v-bind:is="selectedComponent"></component>
+			<keep-alive>
+				<component v-bind:is="selectedComponent"></component>
+			</keep-alive>
 		</div>
 	</div>
 </template>
 
 <script>
 import Academic from "./components/Academic.vue";
+import Projects from "./components/Projects.vue";
 import SideBar from "./components/SideBar.vue";
 
 export default {
   name: "app",
   components: {
     Academic,
+		Projects,
     SideBar
   },
 	data () {
@@ -26,8 +30,7 @@ export default {
 		changeLocale(loc){
 			this.$i18n.locale=loc;
 		},
-		changePage(page){
-			console.log(page);	
+		changePage(page){	
 			this.selectedComponent=page;
 		}	
 	}

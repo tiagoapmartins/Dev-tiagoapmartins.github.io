@@ -24,8 +24,8 @@
         <div>
             <nav>
                 <ul>
-									<li v-for="link in $t('links')">
-												<a @click="$emit('page-select',link.page)" href="#">{{ link.name }}</a>
+									<li v-for="link in links">
+												<a @click="$emit('page-select',link.page)" href="#">{{ $t(i18n_array('links',link.id)+'.name') }}</a>
                     </li>
                 </ul>
             </nav>
@@ -38,25 +38,52 @@
     "en": {
         "bio": "Default english biography",
 				"links": [
-					{ "name" : "Academic Background", "page" : "Academic" },
-					{ "name" : "Projects", "page" : "" },
-					{ "name" : "Contacts", "page" : "" }
+					{ 
+						"id": 0,
+						"name" : "Academic Background"
+					},
+					{
+						"id": 1,
+						"name" : "Projects"
+					},
+					{
+						"id": 2,
+						"name" : "Contacts"
+					}
 				]
 		},
     "pt": {
         "bio": "Biografia em português",
 				"links": [
-					{ "name" : "Percurso Académico", "page" : "Academic" },
-					{ "name" : "Projetos", "page" : "" },
-					{ "name" : "Contactos", "page" : "" }
+					{
+						"id": 0,
+						"name" : "Percurso Académico"
+					},
+					{
+						"id": 1,
+						"name" : "Projetos"
+					},
+					{
+						"id": 2,
+						"name" : "Contactos"	
+					}
 				]
     },
     "ja": {
         "bio": "日本語のビオグラフィ",
 				"links": [
-					{ "name" : "学歴", "page" : "Academic" },
-					{ "name" : "家", "page" : "" },
-					{ "name" : "連絡先", "page" : "" }
+					{
+						"id": 0,
+						"name" : "学歴"
+					},
+					{
+						"id": 1,
+						"name" : "家"
+					},
+					{
+						"id": 2,
+						"name" : "連絡先"
+					}
 				]
     }
 }
@@ -70,9 +97,28 @@ export default {
   },
   data () {
       return {
-    		birth:  new Date('1995-05-28')
+    		birth:  new Date('1995-05-28'),
+				links: [
+					{
+						"id": 0,
+						"page": "Academic"
+					},
+					{
+						"id": 1,
+						"page": "Projects"
+					},
+					{
+						"id": 2,
+						"page": ""
+					}
+				]
       }
   },
+	methods: {
+		i18n_array (arr,index) {
+			return arr+'['+index+']';
+		}
+	},
 	computed: {
 		age: function (){
 			return Math.floor((Date.now() - this.birth) / (1000 * 60 * 60 * 24 * 365.5))

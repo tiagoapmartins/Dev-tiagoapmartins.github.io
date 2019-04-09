@@ -2,11 +2,10 @@
     <div class="academic">
     	<h2>{{ $t('title')  }}</h2>
 			<ul class="degrees">
-				<!--<li v-for="degree in $t('degrees')">-->
-				<li v-for="degree in degrees">
-					<span>{{ degree.sdate }}<span v-if="$i18n.locale=='ja'">年</span> - {{ degree.edate }}<span v-if="$i18n.locale=='ja'">年</span></span>
-					<h3><b>{{ $t(i18n_array('degrees',degree.id)+'.title')  }}</b><br/> {{ $t(i18n_array('degrees',degree.id)+'.course')  }}</h3>
-					<span>{{ $t(i18n_array('degrees',degree.id)+'.school')  }} ({{ degree.school_short  }}) </span>
+				<li v-for="degree in $t('degrees')">
+					<span>{{ degree.sdate }} - {{ degree.edate }}</span>
+					<h3><b>{{ degree.title  }}</b><br/> {{ degree.course  }}</h3>
+					<span>{{ degree.school  }}</span>
 				</li>
 			</ul>
     </div>
@@ -17,23 +16,26 @@
     "en": {
        	"title": "Academic Background",
 				"degrees": [
-					{
-						"id": 0,
+					{ 
 						"title": "Master's Degree",
 						"course": "Cybersecurity and Digital Forensics",
-						"school": "Polytechnic Institute of Leiria"
+						"school": "Polytechnic Institute of Leiria (IPLeiria)",
+						"sdate": "2018",
+						"edate": "2020"
 					},
-					{
-						"id": 1,
+					{ 
 						"title": "Bachelor's Degree",
 						"course": "Computer Engineering",
-						"school": "Polytechnic Institute of Leiria"
+						"school": "Polytechnic Institute of Leiria (IPLeiria)",
+						"sdate": "2015",
+						"edate": "2018"
 					},
 					{
-						"id": 2,
 						"title": "Technological Specialization Course",
 						"course": "Building and Administrating Websites",
-						"school": "Polytechnic Institute of Leiria"
+						"school": "Polytechnic Institute of Leiria (IPLeiria)",
+						"sdate": "2013",
+						"edate": "2015"
 					}
 				]
 		},
@@ -41,24 +43,25 @@
         "title": "Percurso Académico",
 				"degrees": [
 					{ 
-						"id": 0,
 						"title": "Mestrado",
 						"course": "Cibersegurança e Informática Forense",
-						"school": "Instituto Politécnico de Leiria"
+						"school": "Instituto Politécnico de Leiria (IPLeiria)",
+						"sdate": "2018",
+						"edate": "2020"
 					},
 					{ 
-						"id": 1,
 						"title": "Licenciatura",
 						"course": "Engenharia Informática",
-						"school": "Instituto Politécnico de Leiria",
+						"school": "Instituto Politécnico de Leiria (IPLeiria)",
 						"sdate": "2015",
 						"edate": "2018"
 					},
 					{ 
-						"id": 2,
 						"title": "Curso de Especialização Tecnológica",
 						"course": "Construção e Administração de Websites",
-						"school": "Instituto Politécnico de Leiria"
+						"school": "Instituto Politécnico de Leiria (IPLeiria)",
+						"sdate": "2013",
+						"edate": "2015"
 					}
 				]
     },
@@ -66,22 +69,25 @@
 				"title": "学歴",
 				"degrees": [
 					{ 
-						"id": 0,
 						"title": "修士号",
 						"course": "サイバーセキュリティとデジタルフォレンジック",
-						"school": "レイリア工科大学"
+						"school": "レイリア工科大学 (IPLeiria)",
+						"sdate": "2018年",
+						"edate": "2020年"
 					},
 					{ 
-						"id": 1,
 						"title": "学士号",
 						"course": "情報工学",
-						"school": "レイリア工科大学"
+						"school": "レイリア工科大学 (IPLeiria)",
+						"sdate": "2015年",
+						"edate": "2018年"
 					},
 					{ 
-						"id": 2,
 						"title": "技術専門コース",
 						"course": "Webサイト構築と管理",
-						"school": "レイリア工科大学"
+						"school": "レイリア工科大学 (IPLeiria)",
+						"sdate": "2013年",
+						"edate": "2015年"
 					}
 				]
     }
@@ -95,33 +101,10 @@ export default {
     
   },
   data () {
-  	return {
-			degrees: [
-				{ 
-						"id": 0,
-						"sdate": "2018",
-						"edate": "2020",
-						"school_short": "IPLeiria"
-					},
-					{ 
-						"id": 1,
-						"sdate": "2015",
-						"edate": "2018",
-						"school_short": "IPLeiria"
-					},
-					{ 
-						"id": 2,
-						"sdate": "2013",
-						"edate": "2015",
-						"school_short": "IPLeiria"
-					}
-			]
-    }
+      return {
+      }
   },
 	methods: {
-		i18n_array (arr,index) {
-			return arr+'['+index+']';
-		}
 	}
 };
 </script>
