@@ -1,11 +1,20 @@
 <template>
     <div class="academic">
     	<h2>{{ $t('title')  }}</h2>
-			<ul class="degrees">
-				<li v-for="degree in $t('degrees')">
-					<span>{{ degree.sdate }} - {{ degree.edate }}</span>
-					<h3><b>{{ degree.title  }}</b><br/> {{ degree.course  }}</h3>
-					<span>{{ degree.school  }}</span>
+			<ul class="projects">
+				<li v-for="project in projects">
+					<h3><b>{{ $t(i18n_array('projects',project.id)+'.title')  }}</b><br/> {{ $t(i18n_array('project_type',project.type)+'.name')  }}</h3>
+					<span v-for="platform_id in project.platforms">
+						{{ platforms[platform_id].name }}
+					</span>
+					<br />
+					<span v-for="framework_id in project.frameworks">
+						{{ frameworks[framework_id].name }}
+					</span>
+					<br />
+					<span v-for="progLang_id in project.progLangs">
+						{{ progLangs[progLang_id].short }}
+					</span>
 				</li>
 			</ul>
     </div>
@@ -14,33 +23,30 @@
 <i18n>
 {
     "en": {
-       	"title": "Academic Background",
-				"degrees": [
-					{ 
-						"title": "Master's Degree",
-						"course": "Cybersecurity and Digital Forensics",
-						"school": "Polytechnic Institute of Leiria (IPLeiria)",
-						"sdate": "2018",
-						"edate": "2020"
-					},
-					{ 
-						"title": "Bachelor's Degree",
-						"course": "Computer Engineering",
-						"school": "Polytechnic Institute of Leiria (IPLeiria)",
-						"sdate": "2015",
-						"edate": "2018"
+       	"title": "Projects",
+				"project_type": [
+					{
+						"id": 0,
+						"name": "School"
 					},
 					{
-						"title": "Technological Specialization Course",
-						"course": "Building and Administrating Websites",
-						"school": "Polytechnic Institute of Leiria (IPLeiria)",
-						"sdate": "2013",
-						"edate": "2015"
+						"id": 1,
+						"name": "Work"
+					},
+					{
+						"id": 2,
+						"name": "Personal"
+					}
+				],
+				"projects": [
+					{ 
+						"id": 0,
+						"title": "Simple Blackjack"
 					}
 				]
 		},
     "pt": {
-        "title": "Percurso Académico",
+        "title": "Projetos",
 				"degrees": [
 					{ 
 						"title": "Mestrado",
@@ -66,7 +72,7 @@
 				]
     },
     "ja": {
-				"title": "学歴",
+				"title": "家",
 				"degrees": [
 					{ 
 						"title": "修士号",
@@ -102,7 +108,7 @@ export default {
   },
   data () {
       return {
-				ProgLang: [
+				progLangs: [
 					{
 						"id": 0,
 						"name": "HyperText Markup Language",
@@ -154,7 +160,7 @@ export default {
 						"short": "SQL"
 					}
 				],
-				Framweorks: [
+				frameworks: [
 					{
 						"id": 0,
 						"id_pl": [0,1,2],
@@ -170,8 +176,13 @@ export default {
 						"id_pl": [2],
 						"name": "Vue.js"
 					},
+					{
+						"id": 3,
+						"id_pl": [4],
+						"name": "Laravel"
+					}
 				],
-				Platforms: [
+				platforms: [
 					{
 						"id": 0,
 						"name": "Web",
@@ -189,16 +200,21 @@ export default {
 						"name": "Android",
 					}
 				],
-				Projects: [
+				projects: [
 					{
 						"id": 0,
-						"type": "",
-
+						"type": 0,
+						"platforms": [0],
+						"progLangs": [0,1,2,4,7],
+						"frameworks": [0,1,2,3]
 					}
 				]
       }
   },
 	methods: {
+		i18n_array (arr,index) {
+			return arr+'['+index+']';
+		}
 	}
 };
 </script>
