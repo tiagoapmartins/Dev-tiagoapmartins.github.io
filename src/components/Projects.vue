@@ -96,12 +96,106 @@
 
 <script>
 export default {
-  name: "Academic",
+  name: "Projects",
   props: {
     
   },
   data () {
       return {
+				ProgLang: [
+					{
+						"id": 0,
+						"name": "HyperText Markup Language",
+						"short": "HTML"
+					},
+					{
+						"id": 1,
+						"name": "Cascade Style Sheet",
+						"short": "CSS"
+					},
+					{
+						"id": 2,
+						"name": "Javascript",
+						"short": "JS"
+					},
+					{
+						"id": 3,
+						"name": "eXtended Markup Language",
+						"short": "XML"
+					},
+					{
+						"id": 4,
+						"name": "PreProcesse Hyperext",
+						"short": "PHP"
+					},
+					{
+						"id": 5,
+						"name": "C"
+					},
+					{
+						"id": 6,
+						"name": "Java",
+						"types": [
+							{
+								"id": 0,
+								"name": "Standard Edition",
+								"short": "SE"
+							},
+							{
+								"id": 1,
+								"name": "Enterprise Edition",
+								"short": "EE"
+							}
+						]
+					},
+					{
+						"id": 7,
+						"name": "Structured Query Language",
+						"short": "SQL"
+					}
+				],
+				Framweorks: [
+					{
+						"id": 0,
+						"id_pl": [0,1,2],
+						"name": "Twitter Bootstrap"
+					},
+					{
+						"id": 1,
+						"id_pl": [2],
+						"name": "Node.js"
+					},
+					{
+						"id": 2,
+						"id_pl": [2],
+						"name": "Vue.js"
+					},
+				],
+				Platforms: [
+					{
+						"id": 0,
+						"name": "Web",
+					},
+					{
+						"id": 1,
+						"name": "Windows",
+					},
+					{
+						"id": 2,
+						"name": "Linux",
+					},
+					{
+						"id": 3,
+						"name": "Android",
+					}
+				],
+				Projects: [
+					{
+						"id": 0,
+						"type": "",
+
+					}
+				]
       }
   },
 	methods: {
