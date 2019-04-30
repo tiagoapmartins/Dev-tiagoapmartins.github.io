@@ -131,7 +131,7 @@ export default {
 					},
 					{
 						"id": 4,
-						"name": "PreProcesse Hyperext",
+						"name": "PreProcessor Hypertext",
 						"short": "PHP"
 					},
 					{
@@ -206,7 +206,11 @@ export default {
 						"type": 0,
 						"platforms": [0],
 						"progLangs": [0,1,2,4,7],
-						"frameworks": [0,1,2,3]
+						"frameworks": [0,1,2,3],
+						"links": [
+							"https://github.com/rockandre/DAD_BlackJack_Client",
+							"https://github.com/rockandre/DAD_BlackJack_Server"
+						]
 					}
 				]
       }

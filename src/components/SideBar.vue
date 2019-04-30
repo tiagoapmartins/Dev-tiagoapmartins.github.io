@@ -140,6 +140,16 @@ export default {
   background-size: 950px;
 }
 
+/* On screens that are 600px wide or less, make the menu links stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .sideBar {
+		position: relative;
+    float: left;
+    width: 100%;
+  }
+}
+
+
 img {
   border-radius: 50%;
   max-width: 300px;
