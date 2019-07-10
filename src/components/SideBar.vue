@@ -25,7 +25,7 @@
             <nav>
                 <ul>
 									<li v-for="link in links">
-												<a @click="$emit('page-select',link.page)" href="#">{{ $t(i18n_array('links',link.id)+'.name') }}</a>
+												<a @click="$emit('page-select',link.page)" href="#content">{{ $t(i18n_array('links',link.id)+'.name') }}</a>
                     </li>
                 </ul>
             </nav>
@@ -144,9 +144,13 @@ export default {
 @media screen and (max-width: 600px) {
   .sideBar {
 		position: relative;
-    float: left;
     width: 100%;
+		margin-bottom: 20px;
   }
+	.langSelect{
+		margin: 0;
+		padding: 18px 0 18px 0;
+	}
 }
 
 

@@ -3,17 +3,24 @@
     	<h2>{{ $t('title')  }}</h2>
 			<ul class="projects">
 				<li v-for="project in projects">
+					<span>{{ project.smonth }}<span v-if="$i18n.locale=='ja'">月</span><span v-else>/</span>{{ project.syear }}<span v-if="$i18n.locale=='ja'">年</span> - {{ project.emonth }}<span v-if="$i18n.locale=='ja'">月</span><span v-else>/</span>{{ project.eyear }}<span v-if="$i18n.locale=='ja'">年</span></span>
 					<h3><b>{{ $t(i18n_array('projects',project.id)+'.title')  }}</b><br/> {{ $t(i18n_array('project_type',project.type)+'.name')  }}</h3>
-					<span v-for="platform_id in project.platforms">
-						{{ platforms[platform_id].name }}
+					<p>
+						{{ $t(i18n_array('projects',project.id)+'.desc')  }}
+					</p>
+					<h4>{{ $t('plat') }}: </h4>
+					<span v-for="platform in project.platforms">
+						{{ platform }}
 					</span>
 					<br />
-					<span v-for="framework_id in project.frameworks">
-						{{ frameworks[framework_id].name }}
+					<h4>{{ $t('tech') }}: </h4>
+					<span  class="pill" v-for="tech in project.technologies">
+						<i :class="tech.icon"></i> {{ tech.name }}
 					</span>
 					<br />
-					<span v-for="progLang_id in project.progLangs">
-						{{ progLangs[progLang_id].short }}
+					<h4>{{ $t('link') }}: </h4>
+					<span v-for="link in project.links">
+						<a :href="link.href" target="_blank"><i :class="link.icon"></i> {{ link.name }} </a>
 					</span>
 				</li>
 			</ul>
@@ -24,6 +31,9 @@
 {
     "en": {
        	"title": "Projects",
+				"tech": "Technologies",
+				"plat": "Platforms",
+				"link": "Links",
 				"project_type": [
 					{
 						"id": 0,
@@ -41,59 +51,62 @@
 				"projects": [
 					{ 
 						"id": 0,
-						"title": "Simple Blackjack"
+						"title": "Simple Blackjack",
+						"desc": "In the subject of Development of Distributed Applications, a simple blackjack web application was proposed in order to gain experience with asynchronous server-client communications. This application consisted in a server where the game state and game logic was managed, and up to 4 clients who only had access to their own cards."
 					}
 				]
 		},
     "pt": {
         "title": "Projetos",
-				"degrees": [
-					{ 
-						"title": "Mestrado",
-						"course": "Cibersegurança e Informática Forense",
-						"school": "Instituto Politécnico de Leiria (IPLeiria)",
-						"sdate": "2018",
-						"edate": "2020"
+				"tech": "Tecnologias",
+				"plat": "Plataformas",
+				"link": "Links",
+				"project_type": [
+					{
+						"id": 0,
+						"name": "Académico"
 					},
-					{ 
-						"title": "Licenciatura",
-						"course": "Engenharia Informática",
-						"school": "Instituto Politécnico de Leiria (IPLeiria)",
-						"sdate": "2015",
-						"edate": "2018"
+					{
+						"id": 1,
+						"name": "Trabalho"
 					},
+					{
+						"id": 2,
+						"name": "Pessoal"
+					}
+				],
+				"projects": [
 					{ 
-						"title": "Curso de Especialização Tecnológica",
-						"course": "Construção e Administração de Websites",
-						"school": "Instituto Politécnico de Leiria (IPLeiria)",
-						"sdate": "2013",
-						"edate": "2015"
+						"id": 0,
+						"title": "Simple Blackjack",
+						"desc": "Na unidade curricular de Desenvolvimento de Aplicações Distribuídas, foi proposta a criação de um jogo backjack em formato de aplicação web, de forma a conhecer o funcionamento de comunicações assíncronas cliente-servidor. Esta aplicação consiste num servidor onde acontece toda a lógica e estado do jogo, e permite até 4 jogadores, os quais apenas têm acesso às próprias cartas."
 					}
 				]
     },
     "ja": {
 				"title": "家",
-				"degrees": [
-					{ 
-						"title": "修士号",
-						"course": "サイバーセキュリティとデジタルフォレンジック",
-						"school": "レイリア工科大学 (IPLeiria)",
-						"sdate": "2018年",
-						"edate": "2020年"
+				"tech": "テクノロジーズ",
+				"plat": "プラットフォーム",
+				"link": "URL",
+				"project_type": [
+					{
+						"id": 0,
+						"name": "学術 (Maybe wrong)"
 					},
-					{ 
-						"title": "学士号",
-						"course": "情報工学",
-						"school": "レイリア工科大学 (IPLeiria)",
-						"sdate": "2015年",
-						"edate": "2018年"
+					{
+						"id": 1,
+						"name": "作業 (Maybe wrong)"
 					},
+					{
+						"id": 2,
+						"name": "個人的な (Maybe wrong)"
+					}
+				],
+				"projects": [
 					{ 
-						"title": "技術専門コース",
-						"course": "Webサイト構築と管理",
-						"school": "レイリア工科大学 (IPLeiria)",
-						"sdate": "2013年",
-						"edate": "2015年"
+						"id": 0,
+						"title": "シンプルブラックジャック",
+						"desc": ""
 					}
 				]
     }
@@ -108,108 +121,48 @@ export default {
   },
   data () {
       return {
-				progLangs: [
-					{
-						"id": 0,
-						"name": "HyperText Markup Language",
-						"short": "HTML"
-					},
-					{
-						"id": 1,
-						"name": "Cascade Style Sheet",
-						"short": "CSS"
-					},
-					{
-						"id": 2,
-						"name": "Javascript",
-						"short": "JS"
-					},
-					{
-						"id": 3,
-						"name": "eXtended Markup Language",
-						"short": "XML"
-					},
-					{
-						"id": 4,
-						"name": "PreProcessor Hypertext",
-						"short": "PHP"
-					},
-					{
-						"id": 5,
-						"name": "C"
-					},
-					{
-						"id": 6,
-						"name": "Java",
-						"types": [
-							{
-								"id": 0,
-								"name": "Standard Edition",
-								"short": "SE"
-							},
-							{
-								"id": 1,
-								"name": "Enterprise Edition",
-								"short": "EE"
-							}
-						]
-					},
-					{
-						"id": 7,
-						"name": "Structured Query Language",
-						"short": "SQL"
-					}
-				],
-				frameworks: [
-					{
-						"id": 0,
-						"id_pl": [0,1,2],
-						"name": "Twitter Bootstrap"
-					},
-					{
-						"id": 1,
-						"id_pl": [2],
-						"name": "Node.js"
-					},
-					{
-						"id": 2,
-						"id_pl": [2],
-						"name": "Vue.js"
-					},
-					{
-						"id": 3,
-						"id_pl": [4],
-						"name": "Laravel"
-					}
-				],
-				platforms: [
-					{
-						"id": 0,
-						"name": "Web",
-					},
-					{
-						"id": 1,
-						"name": "Windows",
-					},
-					{
-						"id": 2,
-						"name": "Linux",
-					},
-					{
-						"id": 3,
-						"name": "Android",
-					}
-				],
 				projects: [
 					{
 						"id": 0,
 						"type": 0,
-						"platforms": [0],
-						"progLangs": [0,1,2,4,7],
-						"frameworks": [0,1,2,3],
+						"smonth": 12,
+						"syear": 2017,
+						"emonth": 2,
+						"eyear": 2018,
+						"platforms": ["Web"],
+						"technologies": [
+							{
+								"name": "Node.js",
+								"icon": "devicon-nodejs-plain",
+							},
+							{
+								"name": "Vue.js",
+								"icon": "devicon-vuejs-plain"
+							},
+							{
+								"name": "Laravel",
+								"icon": "devicon-laravel-plain"
+							},
+							{
+								"name": "Vagrant",
+								"icon": "devicon-vagrant-plain"
+							},
+							{
+								"name": "Bootstrap",
+								"icon": "devicon-bootstrap-plain"
+							}
+						],
 						"links": [
-							"https://github.com/rockandre/DAD_BlackJack_Client",
-							"https://github.com/rockandre/DAD_BlackJack_Server"
+							{
+								"href": "https://github.com/rockandre/DAD_BlackJack_Server",
+								"name": "Github",
+								"icon": "devicon-github-plain"
+							},
+							{
+								"href": "https://github.com/rockandre/DAD_BlackJack_Client",
+								"name": "Github",
+								"icon": "devicon-github-plain"
+							}
 						]
 					}
 				]
@@ -230,7 +183,12 @@ export default {
 	text-align: left;
 }
 
-.degrees li h3 {
+.projects li h3 {
+	font-weight: normal;
+}
+
+.projects li h4 {
+	margin: 18px 0 5px 0;
 	font-weight: normal;
 }
 
@@ -244,11 +202,11 @@ ul {
   padding: 10px;
 }
 
-ul.degrees {
+ul.projects {
 	position: relative;
 }
 
-ul.degrees:before {
+ul.projects:before {
 	position: absolute;
 	content: '';
 	display: inline-block;
@@ -257,7 +215,7 @@ ul.degrees:before {
 	z-index: 1;
 }
 
-.degrees li {
+.projects li {
 	position: relative;
 	padding: 10px 10px 30px 20px;
 	margin: 30px 0;
@@ -265,7 +223,7 @@ ul.degrees:before {
 	border-radius: 15px 0 15px 0;
 }
 
-.degrees li:before {
+.projects li:before {
 	position: absolute;
 	left: -8px;
 	top: 10px;
@@ -282,5 +240,13 @@ ul.degrees:before {
 a {
   color: #42b983;
   text-decoration: none;
+}
+
+.pill {
+	display: inline-block;
+	padding: 3px;
+	background-color: #aaa;
+	margin: 2px;
+	border-radius: 5px 0;
 }
 </style>

@@ -43,7 +43,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%; /* needed for container min-height */
+  /* height: 100%; /* needed for container min-height */
 	background-color: #e7e7e1;
 }
 #app {
@@ -56,5 +56,22 @@ body {
 }
 #content {
 	margin-left: 350px;	
+}
+/* On screens that are 600px wide or less, make the menu links stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+	html,
+	body{
+		/*height: auto;*/
+	}
+	#content {
+		margin-left: 0;
+	}
+	#content>div{
+		padding: 0 15px 0 15px;
+	}
+	#content>div>h2{
+		margin: 0;
+		padding-top: 0;
+	}
 }
 </style>

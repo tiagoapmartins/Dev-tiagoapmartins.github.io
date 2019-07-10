@@ -26,7 +26,7 @@
 					{
 						"id": 1,
 						"title": "Bachelor's Degree",
-						"course": "Computer Engineering",
+						"course": "Computer Science",
 						"school": "Polytechnic Institute of Leiria"
 					},
 					{
@@ -74,7 +74,7 @@
 					{ 
 						"id": 1,
 						"title": "学士号",
-						"course": "情報工学",
+						"course": "計算機科学",
 						"school": "レイリア工科大学"
 					},
 					{ 
