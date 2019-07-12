@@ -9,8 +9,8 @@
 						{{ $t(i18n_array('projects',project.id)+'.desc')  }}
 					</p>
 					<h4>{{ $t('plat') }}: </h4>
-					<span v-for="platform in project.platforms">
-						{{ platform }}
+					<span class="pill" v-for="platform in project.platforms">
+						<i :class="platform.icon"></i> {{ platform.name }}
 					</span>
 					<br />
 					<h4>{{ $t('tech') }}: </h4>
@@ -53,6 +53,11 @@
 						"id": 0,
 						"title": "Simple Blackjack",
 						"desc": "In the subject of Development of Distributed Applications, a simple blackjack web application was proposed in order to gain experience with asynchronous server-client communications. This application consisted in a server where the game state and game logic was managed, and up to 4 clients who only had access to their own cards."
+					},
+					{ 
+						"id": 1,
+						"title": "MyMusicQoE",
+						"desc": "This project consisted in modifying a couple of open source projects, Airsonic, a streaming service written in Java with on the fly file transcoding capability, and Ultrasonic, an Android application that is capable of communicating with an Airsonic server. The main objective of this project was to create a platform able to randomly transcode an high quality music file to the same or lower quality without the user’s knowledge, and receive rating based on the perceived audio quality from the user. This project was deployed on F-Droid (a popular FOSS Android repository), and was installed by hundreds of users. Later, a study was made based on the gathered statistics."
 					}
 				]
 		},
@@ -105,8 +110,7 @@
 				"projects": [
 					{ 
 						"id": 0,
-						"title": "シンプルブラックジャック",
-						"desc": ""
+						"title": "シンプルブラックジャック"
 					}
 				]
     }
@@ -123,13 +127,61 @@ export default {
       return {
 				projects: [
 					{
+						"id": 1,
+						"type": 0,
+						"smonth": 3,
+						"syear": 2018,
+						"emonth": 9,
+						"eyear": 2018,
+						"platforms": [
+							{
+								"name": "Web",
+								"icon": "fa fa-globe"
+							},
+							{
+								"name": "Android",
+								"icon": "fab fa-android"
+							}
+						],
+						"technologies": [
+							{
+								"name": "Java",
+								"icon": "devicon-java-plain",
+							},
+							{
+								"name": "Java Servlet Pages",
+								"icon": "devicon-java-plain"
+							},
+							{
+								"name": "Android SDK",
+								"icon": "devicon-android-plain"
+							},
+							{
+								"name": "Tomcat",
+								"icon": "devicon-tomcat-line"
+							}
+						],
+						"links": [
+							{
+								"href": "https://github.com/RIPASSAS/airsonic",
+								"name": "Github",
+								"icon": "devicon-github-plain"
+							}
+						]
+					},
+					{
 						"id": 0,
 						"type": 0,
 						"smonth": 12,
 						"syear": 2017,
 						"emonth": 2,
 						"eyear": 2018,
-						"platforms": ["Web"],
+						"platforms": [
+							{
+								"name": "Web",
+								"icon": "fa fa-globe"
+							}
+						],
 						"technologies": [
 							{
 								"name": "Node.js",
@@ -164,7 +216,7 @@ export default {
 								"icon": "devicon-github-plain"
 							}
 						]
-					}
+					}		
 				]
       }
   },
@@ -220,7 +272,7 @@ ul.projects:before {
 	padding: 10px 10px 30px 20px;
 	margin: 30px 0;
 	background-color: #ccc;
-	border-radius: 15px 0 15px 0;
+	border-radius: 15px;
 }
 
 .projects li:before {
@@ -238,7 +290,7 @@ ul.projects:before {
 }
 
 a {
-  color: #42b983;
+  color: #31a872;
   text-decoration: none;
 }
 
@@ -247,6 +299,6 @@ a {
 	padding: 3px;
 	background-color: #aaa;
 	margin: 2px;
-	border-radius: 5px 0;
+	border-radius: 5px;
 }
 </style>

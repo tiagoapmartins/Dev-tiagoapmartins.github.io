@@ -165,7 +165,7 @@ ul.degrees:before {
 	padding: 10px 10px 30px 20px;
 	margin: 30px 0;
 	background-color: #ccc;
-	border-radius: 15px 0 15px 0;
+	border-radius: 15px;
 }
 
 .degrees li:before {

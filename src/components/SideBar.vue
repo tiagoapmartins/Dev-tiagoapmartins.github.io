@@ -36,7 +36,7 @@
 <i18n>
 {
     "en": {
-        "bio": "Default english biography",
+		"bio": "I'm a software and full-stack web developer that focuses on security",
 				"links": [
 					{ 
 						"id": 0,
@@ -53,7 +53,7 @@
 				]
 		},
     "pt": {
-        "bio": "Biografia em português",
+        "bio": "Sou um desenvolvedor de software e web que tem um foco na segurança",
 				"links": [
 					{
 						"id": 0,
@@ -70,7 +70,7 @@
 				]
     },
     "ja": {
-        "bio": "日本語のビオグラフィ",
+        "bio": "私はソフトウェア開発とWebエンジニアです。セキュリティは私の一番の配慮。",
 				"links": [
 					{
 						"id": 0,
@@ -129,15 +129,19 @@ export default {
 
 <style scoped lang="scss">
 .sideBar {
-  position: absolute;
+  position: fixed;
 	left: 0;
 	top: 0;
   height: 100%;
-	min-width: 350px;
+	width: 350px;
   color: #fff;
   background: #2c3e50;
   background-image: url("../assets/Japanese_Wave_Pattern.svg");
   background-size: 950px;
+}
+
+.shortBio {
+	margin: 18px 5px;
 }
 
 /* On screens that are 600px wide or less, make the menu links stack on top of each other instead of next to each other */
