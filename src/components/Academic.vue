@@ -2,7 +2,6 @@
     <div class="academic">
     	<h2>{{ $t('title')  }}</h2>
 			<ul class="degrees">
-				<!--<li v-for="degree in $t('degrees')">-->
 				<li v-for="degree in degrees">
 					<span>{{ degree.sdate }}<span v-if="$i18n.locale=='ja'">年</span> - {{ degree.edate }}<span v-if="$i18n.locale=='ja'">年</span></span>
 					<h3><b>{{ $t(i18n_array('degrees',degree.id)+'.title')  }}</b><br/> {{ $t(i18n_array('degrees',degree.id)+'.course')  }}</h3>

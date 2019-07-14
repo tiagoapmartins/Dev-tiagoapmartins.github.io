@@ -12,18 +12,20 @@
 <script>
 import Academic from "./components/Academic.vue";
 import Projects from "./components/Projects.vue";
+import Contacts from "./components/Contacts.vue";
 import SideBar from "./components/SideBar.vue";
 
 export default {
   name: "app",
   components: {
-    Academic,
 		Projects,
+    Academic,
+		Contacts,
     SideBar
   },
 	data () {
 		return {
-			selectedComponent: "Academic"
+			selectedComponent: "Projects"
 		}
 	},
 	methods: {

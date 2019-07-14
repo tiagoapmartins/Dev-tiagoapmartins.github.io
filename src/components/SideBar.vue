@@ -11,7 +11,7 @@
                 <a @click="$emit('locale-select','ja')" href="#">日本語</a>
             </li>
         </ul>
-        <div>
+        <div class="self-img">
             <img src="../assets/me.jpg">
         </div>
         <div>
@@ -38,13 +38,13 @@
     "en": {
 		"bio": "I'm a software and full-stack web developer that focuses on security",
 				"links": [
-					{ 
-						"id": 0,
-						"name" : "Academic Background"
-					},
 					{
-						"id": 1,
+						"id": 0,
 						"name" : "Projects"
+					},
+					{ 
+						"id": 1,
+						"name" : "Academic Background"
 					},
 					{
 						"id": 2,
@@ -57,11 +57,11 @@
 				"links": [
 					{
 						"id": 0,
-						"name" : "Percurso Académico"
+						"name" : "Projetos"
 					},
 					{
 						"id": 1,
-						"name" : "Projetos"
+						"name" : "Percurso Académico"
 					},
 					{
 						"id": 2,
@@ -74,12 +74,13 @@
 				"links": [
 					{
 						"id": 0,
-						"name" : "学歴"
+						"name" : "作品"
 					},
 					{
 						"id": 1,
-						"name" : "家"
+						"name" : "学歴"
 					},
+
 					{
 						"id": 2,
 						"name" : "連絡先"
@@ -101,15 +102,15 @@ export default {
 				links: [
 					{
 						"id": 0,
-						"page": "Academic"
-					},
-					{
-						"id": 1,
 						"page": "Projects"
 					},
 					{
+						"id": 1,
+						"page": "Academic"
+					},
+					{
 						"id": 2,
-						"page": ""
+						"page": "Contacts"
 					}
 				]
       }
@@ -155,10 +156,13 @@ export default {
 		margin: 0;
 		padding: 18px 0 18px 0;
 	}
+	.self-img img {
+  	max-width: 200px !important;
+	}
 }
 
 
-img {
+.self-img img {
   border-radius: 50%;
   max-width: 300px;
 }
